@@ -14,7 +14,9 @@ export default {
 
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon_logo.png' },
-      { rel: 'StyleSheet', href: 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css'},
+      //{ rel: 'StyleSheet', href: 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css'},
+      { rel: 'Stylesheet', href:'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css'},
+     
     ]
     
   },
@@ -25,6 +27,7 @@ export default {
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
+    '@/plugins/scroll',
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
@@ -39,6 +42,7 @@ export default {
     // https://go.nuxtjs.dev/bootstrap
     'bootstrap-vue/nuxt',
     '@nuxtjs/axios',
+    
   ],
 
   // Build Configuration: https://go.nuxtjs.dev/config-build

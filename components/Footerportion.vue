@@ -3,13 +3,13 @@
       <b-container>
           <b-row class="pt-5 align">
               <b-col cols="5 content_align">
-                  <p  class="heading"><img src="../static/logo_img2.png" class="logo_img" alt=""></p>
+                  <p  class="heading"><img src="../static/logo_img2.png" class="logo_img" alt="" data-aos="fade-up" data-aos-anchor-placement="bottom-bottom" data-aos-duration="2000"></p>
                   <p  class="text_1">At SM Digital Tech our mission is to help SME's grow online, 
                                 have their own web presence without worrying about technology.</p>
                   <div class="footer_icon">
-                      <div class="icon"><a href="https://www.facebook.com/smdigitaltech27" target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i></a></div>
-                      <div class="icon"><a href="https://www.instagram.com/smdigitaltech27/" target="_blank"><i class="fa fa-instagram" aria-hidden="true"></i></a></div>
-                      <div class="icon"><a href="https://www.behance.net/smdigitaltech1" target="_blank"><i class="fa fa-behance" aria-hidden="true"></i></a></div>
+                      <b-avatar class="icon" data-aos="fade-right" data-aos-anchor-placement="bottom-bottom"  data-aos-duration="2000" ><a href="https://www.facebook.com/smdigitaltech27" target="_blank"><i class="fa-brands fa-facebook"></i></a></b-avatar>
+                      <b-avatar class="icon" data-aos="fade-up" data-aos-anchor-placement="bottom-bottom"  data-aos-duration="2000"><a href="https://www.instagram.com/smdigitaltech27/" target="_blank"><i class="fa-brands fa-instagram"></i></a></b-avatar>
+                      <b-avatar class="icon" data-aos="fade-left" data-aos-anchor-placement="bottom-bottom"  data-aos-duration="2000"><a href="https://www.behance.net/smdigitaltech1" target="_blank"><i class="fa-brands fa-behance"></i></a></b-avatar>
                   </div>
               </b-col>
               <b-col>
@@ -26,26 +26,26 @@
                   <ul class="address_portion">
                     <li class="text-capitalize"><a href="https://goo.gl/maps/NfV4U5b1qMwvBMcp6" target="_blank">
                         <b-row>
-                            <b-col cols="2" class="middle"><i class="fa fa-map-marker" aria-hidden="true"></i></b-col> 
+                            <b-col cols="2" class="middle"><i class="fa-solid fa-location-crosshairs"></i></b-col> 
                             <b-col class="p-0 content_text">garia, kolkata, india</b-col>
                         </b-row> 
                     </a></li>
                     <li><a href="tel:91111-70884,7000375881"> 
                         <b-row>
-                            <b-col cols="2" class="middle"><i class="fa fa-phone" aria-hidden="true"></i></b-col>
+                            <b-col cols="2" class="middle"><i class="fa-solid fa-phone"></i></b-col>
                             <b-col class="p-0 content_text"><a href="tel:91111-70884">+91 91111-70884</a>/<a href="tel:7000375881">70003-75881</a></b-col>
                         </b-row>
                     </a></li>
                     <li><a href="mailto:shantanu@smdigitaltech.com">
                         <b-row>
-                            <b-col cols="2" class="middle"><i class="fa fa-envelope" aria-hidden="true"></i></b-col>
+                            <b-col cols="2" class="middle"><i class="fa-solid fa-envelope-circle-check"></i></b-col>
                             <b-col class="p-0 content_text"><a href="mailto:shantanu@smdigitaltech.com">shantanu@smdigitaltech.com</a></b-col>
                         </b-row> 
                     </a></li>
                     <li class="text-capitalize"><a href=""> 
                         <b-row>
-                            <b-col cols="2" class="middle"><i class="fa fa-clock-o" aria-hidden="true"></i></b-col>
-                            <b-col class="p-0 content_text">office hours: 10:00 - 6:00 PM</b-col>
+                            <b-col cols="2" class="middle"><i class="fa-solid fa-business-time"></i></b-col>
+                            <b-col class="p-0 content_text"><a href="https://www.google.co.in/maps/place/SM+Digital+Tech/@22.463178,88.3773504,17z/data=!3m1!4b1!4m5!3m4!1s0x3a0271bca7c11ef9:0x3c0cd974537d4109!8m2!3d22.463178!4d88.3795444?hl=en" target="_blank">office hours: 10:00 - 6:00 PM</a> </b-col>
                         </b-row>
                     </a></li>
                   </ul>
@@ -54,7 +54,7 @@
           
       </b-container>
         <div class="footer_last">
-            <p class="text_footer text-center text-capitalize">copyright ©2022- <span>smdigitaltech</span> - all right reserved.</p>
+            <p class="text_footer text-center text-capitalize">copyright ©2022- <span><a href="https://www.google.co.in/maps/place/SM+Digital+Tech/@22.463178,88.3773504,17z/data=!3m1!4b1!4m5!3m4!1s0x3a0271bca7c11ef9:0x3c0cd974537d4109!8m2!3d22.463178!4d88.3795444?hl=en" target="_blank">smdigitaltech</a></span> - all right reserved.</p>
         </div>
         <!--<img src="https://chart.apis.google.com/chart?cht=qr&chs=250x250&chl=https://www.smdigitaltech.com/">-->
 
@@ -87,21 +87,9 @@ export default {
 .footer_portion{
     background: #1c233f;
 }
-.footer_icon{
-    display: flex;
-}
 .icon{
     width: 40px;
     height: 40px;
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: #f7bc08;
-    margin-right: 8px;
-}
-.icon > a{
-    color: #1c233f;
 }
 ul{
     padding: 0px;
@@ -131,10 +119,7 @@ ul{
 .text_1{
     color: #ccc;
 }
-.fa-map-marker,.fa-phone,.fa-envelope,.fa-clock-o{
-    color: #f7bc08;
-    background: transparent;
-}
+
 .footer_last{
     width: 100%;
     height: 50px;
@@ -147,9 +132,10 @@ ul{
 .text_footer{
     color: #ccc;
 }
-span{
+span > a{
     color: #f7bc08;
     text-transform: lowercase;
+    text-decoration: none;
 }
 .middle{
     text-align: center;

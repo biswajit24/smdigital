@@ -3,10 +3,10 @@
       <b-container>
           <b-row class="mt-5 middle">
               <b-col class="mt-5 img_middle">
-                  <div class="images">
-                       <img src="../static/about_img.png" class="first_img" alt="">
+                  <div class="images" data-aos="fade-right" data-aos-delay="500" data-aos-duration="1500">
+                       <img src="../static/about_img.png" class="first_img" alt="" >
                   </div>
-                  <img src="../static/about_img_2.png" class="second_img" alt="">
+                  <img src="../static/about_img_2.png" class="second_img" alt="" data-aos="zoom-in" data-aos-delay="600" data-aos-duration="1500">
               </b-col>
               <b-col class="mt-5">
                   <strong class="text-uppercase about_company">get to know about our company</strong>
@@ -16,7 +16,7 @@
                                     All without the need of any technical knowledge.
                   </p>
                   <b-row>
-                      <b-col cols="1"><i class="fa fa-handshake-o" aria-hidden="true"></i></b-col>
+                      <b-col cols="1"><i class="fa-solid fa-handshake" data-aos="fade-down" data-aos-delay="700" data-aos-duration="2000"></i></b-col>
                       <b-col>
                           <h4 class="text-capitalize our">our <span>mission</span></h4>
                           <p class="text_1">At SM Digital Tech our mission is to help SME's grow online, 
@@ -45,26 +45,14 @@ export default {
         border-radius: 10px;
     }
     .second_img{
-        width: 40%;
+        width: 30%;
         position: absolute;
         top: 50%;
         left: 50%;
         border-radius: 10px;
         background: #fff;
         box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
-        animation: zoom-in-zoom-out 8s infinite;
     }
-    @keyframes zoom-in-zoom-out {
-    0% {
-        transform: scale(0.9, 0.9);
-    }
-    50% {
-        transform: scale(1, 1);
-    }
-    100% {
-        transform: scale(0.9, 0.9);
-    }
-}
     .about_company{
         font-size: 20px;
         color: #1c233f;
@@ -77,7 +65,7 @@ export default {
         margin: 12px 0px;
         color: #f7bc08;
     }
-    .fa-handshake-o{
+    .fa-handshake{
         font-size: 30px;
     }
     span{
@@ -93,7 +81,7 @@ export default {
         .second_img{
             width: 40%;
         }
-        .fa-handshake-o{
+        .fa-handshake{
             font-size: 24px;
         }
     }
@@ -133,7 +121,7 @@ export default {
         .our{
             font-size: 18px;
         }
-        .fa-handshake-o{
+        .fa-handshake{
             font-size: 20px;
         }
         .about_company{

@@ -22,6 +22,8 @@ import Serviceportion from '../components/Serviceportion.vue'
 import Contactportion from '../components/Contactportion.vue'
 import Footerportion from '../components/Footerportion.vue'
 
+
+
 export default {
     name: 'IndexPage',
     components: {

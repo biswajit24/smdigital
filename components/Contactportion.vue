@@ -1,7 +1,7 @@
 <template>
 <div class="contactportion">
     <b-container>
-        <div class="form_portion">
+        <div class="form_portion" data-aos="fade-down" data-aos-delay="700" data-aos-duration="2000">
             <h3 class="text-center text-capitalize">Get in touch</h3>
             <div class="row mt-5">
                 <div class="col-lg-6 left_form">
@@ -10,7 +10,7 @@
                             <div class="icon_back"><i class="fa fa-phone" aria-hidden="true"></i></div>
                         </div>
                         <div class="col-lg-10">
-                            <p class="text_1 mb-0 text-uppercase">call us</p><strong class="call_num"><a href="tel:9111170884">+91 91111-70884</a></strong>
+                            <p class="text_1 mb-0 text-uppercase">call us</p><strong class="call_num"><a href="tel:9111170884">+91 91111-70884</a>/<a href="tel:7000375881">70003-75881</a></strong>
                         </div>
                     </div>
                     <div class="row mt-5 envelope_portion">
@@ -24,9 +24,9 @@
                 </div>
                 <div class="or_section">OR</div>
                 <div class="col-lg adjust">
-                    <form id="myForm" action="https://script.google.com/macros/s/AKfycbzoBMZk8rTFHhABOyWBUJXYkfAjctHvr0YJ_BiaeGKzOpRDM7NNUtHzJnf0UjRQudIGZw/exec"  method="post">
+                    <form id="myForm" ref="form" @submit="LoginForm" action="https://sheetdb.io/api/v1/3gtrbvmtlarib" method="post">
                         <div class=" form_input_portion">
-                            <input type="text" class="mb-4 p-2" name="Name" maxlength="40" v-model="user.name" required>
+                            <input type="text" class="mb-4 p-2" name="Name" maxlength="50" v-model="user.name" required>
                             <label>Name</label>
                         </div>
                         <div class="form_input_portion">
@@ -38,7 +38,7 @@
                             <label>Email</label>
                         </div>
                         <div class="button_section">
-                            <button type="submit" class="mt-1 py-2 px-4 text-uppercase login" @submit="LoginForm"  @click="FormLogin">login</button>
+                            <button type="submit" class="mt-1 py-2 px-4 text-uppercase login">submit</button>
                         </div>
                     </form>
                 </div>
@@ -50,7 +50,10 @@
 </template>
 
 <script>
-//import axios from 'axios'
+import emailjs from '@emailjs/browser'
+import axios from 'axios'
+import swal from 'sweetalert'
+
 export default {
     name: 'Contactportion',
 
@@ -64,23 +67,32 @@ export default {
         }
     },
     methods: {
-        LoginForm() {
-            if(this.user.name == '' || this.user.number == '' || this.user.email == '' ){
-                alert('please input this field!')
+        LoginForm(e) {
+            e.preventDefault()
+            axios.post('https://sheetdb.io/api/v1/3gtrbvmtlarib', {
+                    Name: this.user.name,
+                    Number: this.user.number,
+                    Email: this.user.email
+                })
+                .then((res) => console.log(res))
+                .catch((res) => console.log(res))
+            if (this.user) {
+                swal("Thank You!", "Data Submitted Successful!", "success");
             }
-        },
-        FormLogin(){
-            if(this.user.name == '' || this.user.number == '' || this.user.email == '' ){
-                alert('Please input this field!')
-            }else{
-                alert('Thank You!');
-            }
-            
-        }
-        
+            emailjs.sendForm('service_tech', 'template_8us7cyp', this.$refs.form, 'Vll_UBQN9DUzACQ1U')
+                .then((result) => {
+                    console.log('SUCCESS!', result.text);
+                }, (error) => {
+                    console.log('FAILED...', error.text);
+                });
+            this.user.name = ''
+            this.user.number = ''
+            this.user.email = ''
 
-       
+        }
+
     }
+
 }
 </script>
 
@@ -101,7 +113,7 @@ export default {
 .form_portion {
     width: 70%;
     height: 350px;
-    background: rgba(255, 255, 255, 0.8);
+    background: rgba(255, 255, 255, 0.6);
     box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
     backdrop-filter: blur(4px);
     border-radius: 10px;
@@ -134,7 +146,7 @@ export default {
 }
 
 .left_form {
-    border-right: 1px solid #c7c8ca;
+    border-right: 1px solid rgba(0, 0, 0, 0.18);
     padding: 0px 18px !important;
 }
 
@@ -146,6 +158,11 @@ export default {
 .text_1 {
     font-weight: 500;
     color: #000;
+}
+
+.email>a,
+.call_num>a {
+    text-decoration: none;
 }
 
 .or_section {
@@ -166,6 +183,7 @@ input {
     width: 100%;
     margin: auto;
     border: 1px solid #929292;
+    border-top: none;
     border-radius: 5px;
     background: transparent;
     outline: none;
@@ -182,15 +200,19 @@ input {
     left: 9px;
     top: 14%;
 }
-
 .form_input_portion input:valid~label,
 .form_input_portion input:focus~label {
-    color: #fff;
-    transform: translateX(2px) translateY(-30px);
+    color: #1c233f;
+    transform: translateX(-3px) translateY(-26px);
     transition: 0.3s;
-    background: #1c233f;
     border-radius: 2px;
-    padding: 0px 8px;
+    padding: 0px 2px;
+}
+
+.form_input_portion input:valid,
+.form_input_portion input:focus {
+    border: 1px solid #000;
+    border-top: none;
 }
 
 ::placeholder {
@@ -269,7 +291,7 @@ h3 {
     }
 
     .form_input_portion>label {
-        left: 50px;
+        left: 48px;
     }
 
     .form_portion {
@@ -279,19 +301,15 @@ h3 {
 
 @media screen and (max-width:480px) {
     .form_input_portion>label {
-        left: 42px;
+        left: 10px;
+    }
+
+    input {
+        width: 100%;
     }
 }
 
 @media screen and (max-width:360px) {
-    .form_input_portion>label {
-        left: 20px;
-    }
-
-    input {
-        width: 90%;
-    }
-
     .email>a {
         font-size: 15px;
     }

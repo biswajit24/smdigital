@@ -4,9 +4,10 @@
         <b-container>
             <b-row class="between">
                 <b-col class="adjust">
-                    <img src="../static/logo_img.png" class="logo" alt="">
+                    <img src="../static/logo_img2.png" class="logo" alt="" data-aos="fade-down" data-aos-delay="500" data-aos-duration="1000">
                     <button class="button_icon">
-                        <i class="fa fa-bars" v-if="show" aria-hidden="true" @click="Navchange"></i>
+    
+                        <i class="fa-solid fa-bars-staggered" v-if="show" aria-hidden="true" @click="Navchange"></i>
                         <i class="fa fa-times" v-if="hide" @click="HiddenClick" aria-hidden="true"></i>
                     </button>
                 </b-col>
@@ -16,35 +17,36 @@
                             <li><a @click="Homepage" class="active">
                                     <b-row class="nav_align">
                                         <div class="demo">
-                                            <i class="fa fa-home" aria-hidden="true"></i>
-                                             home
+                                            <i class="fa-solid fa-house-user"></i>
+                                            home
                                         </div>
                                     </b-row>
                                 </a></li>
                             <li><a @click="Aboutpage">
                                     <b-row class="nav_align">
                                         <div class="demo">
-                                            <i class="fa fa-info-circle" aria-hidden="true"></i>
-                                             About
+                                            <i class="fa-solid fa-circle-info"></i>
+                                            About
                                         </div>
                                     </b-row>
                                 </a></li>
-                            <li id="popover-target-1"><a >
+                            <li id="popover-target-1"><a>
                                     <b-row class="nav_align">
                                         <div class="demo">
-                                            <i class="fa fa-cogs" aria-hidden="true"></i>
-                                            <span @click="Servicepage"> service </span><i class="fa fa-chevron-circle-down" aria-hidden="true"></i>
-                                        </div>                           
+                                            <i class="fa-sharp fa-solid fa-gears"></i>
+                                            <span @click="Servicepage"> service </span>
+                                        </div>
                                     </b-row>
                                 </a></li>
                             <li><a @click="Contactpage">
                                     <b-row class="nav_align">
                                         <div class="demo">
-                                            <i class="fa fa-phone" aria-hidden="true"></i>
-                                             contact
+                                           <i class="fa-solid fa-phone"></i>
+                                            contact
                                         </div>
                                     </b-row>
                                 </a></li>
+
                         </ul>
                         <b-popover target="popover-target-1" id="drop" triggers="hover" placement="bottomtop">
                             <li class="list">web design & seo</li>
@@ -119,17 +121,18 @@ export default {
 </script>
 
 <style scoped>
-.demo{
+.demo {
     padding: 0px 13px;
+    color: #fff;
 }
+
 html {
     scroll-behavior: smooth;
     transition: 0.5s;
 }
 
 .header_nav {
-    background: #fff;
-    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    background: #1c233f;
     margin: auto;
     width: 100%;
     position: fixed;
@@ -151,7 +154,6 @@ html {
 
 nav {
     width: 100%;
-    background: #fff;
     display: flex;
     justify-content: flex-end;
 }
@@ -169,9 +171,9 @@ nav ul li {
 
 nav ul li a {
     display: block;
-    padding: 7px 13px;
+    padding: 7px 18px;
     text-decoration: none;
-    color: #1c233f;
+    color: #f7bc08;
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 1px;
@@ -179,7 +181,7 @@ nav ul li a {
 
 nav ul li .active {
     display: block;
-    padding: 7px 13px;
+    padding: 7px 19px;
     text-decoration: none;
     color: #1c233f;
     font-weight: 700;
@@ -285,29 +287,33 @@ nav.shift ul li a:hover:after {
     .logo {
         width: 37%;
     }
+
     nav ul li .active,
     nav ul li a {
         padding: 0px 3px;
     }
+
     nav.shift ul li a:after {
         top: 12px;
     }
-    .demo{
-    padding: 0px 19px;
-}
+
+    .demo {
+        padding: 0px 19px;
+    }
 }
 
 @media screen and (max-width:992px) {
-    .nav_align{
+    .nav_align {
         justify-content: center;
     }
+
     nav.shift ul li a:after {
         top: 0px;
     }
 
-    .fa-home,
-    .fa-info-circle,
-    .fa-cogs,
+    .fa-house-user,
+    .fa-circle-info,
+    .fa-gears,
     .fa-phone {
         display: none;
     }
@@ -334,7 +340,7 @@ nav.shift ul li a:hover:after {
         color: #fff !important;
     }
 
-    .fa-bars {
+    .fa-bars-staggered {
         display: block;
         font-size: 23px;
     }
@@ -346,7 +352,7 @@ nav.shift ul li a:hover:after {
 
     .button_icon {
         display: block;
-        color: #1c233f;
+        color: #fff;
         background: transparent;
         border: none !important;
         border-radius: 5px;
@@ -359,12 +365,14 @@ nav.shift ul li a:hover:after {
         box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.5);
         display: flex;
         flex-direction: column;
-        position: absolute;
-        top: 10px;
-        z-index: 10;
-        transform: translateX(160%);
+        justify-content: flex-start;
+        position: fixed;
+        top: 0;
+        right: 0;
+        z-index: -1;
+        transform: translateY(-100%);
         transition: 0.8s;
-        padding: 15px;
+        padding: 50px 0px;
     }
 
     #drop {
@@ -373,10 +381,12 @@ nav.shift ul li a:hover:after {
         transition: 0.6s;
 
     }
-
     .navbar {
-        transform: translateX(0%);
-        transition: 0.8s;
+        width: 100%;
+        min-height: 100%;
+        transform: translateY(0%);
+        transition: 0.9s;
+        height: auto !important;
     }
 
     nav ul li {
@@ -422,11 +432,15 @@ nav.shift ul li a:hover:after {
     }
 
     .logo {
-        width: 27%;
+        width: 30%;
+    }
+    .fa-bars-staggered{
+        font-size: 19px;
     }
 }
 
 @media screen and (max-width:360px) {
+  
     .scrollto_top {
         width: 45px;
         height: 45px;
